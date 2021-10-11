@@ -6,7 +6,7 @@ const CF_IMAGES_WORKER_URL = 'https://image-resize.cannaware.workers.dev';
 const SITE_URL = 'https://cogojobs.com';
 
 const cloudflareImageLoader = ({ src, width, quality = DEFAULT_QUALITY }: ImageLoaderProps) => {
-  return `${CF_IMAGES_WORKER_URL}?width=${width}&quality=${quality}&image=${SITE_URL}${src}`;
+  return `${CF_IMAGES_WORKER_URL}?width=${width}&quality=${quality}&image=${SITE_URL}/${src}`;
 };
 
 export default function Img(props: ImageProps) {
