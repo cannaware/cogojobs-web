@@ -13,6 +13,8 @@ import {
 import type { NextPage } from 'next';
 import { IoMdCheckmarkCircle } from 'react-icons/io';
 
+import Image from '@/components/Image';
+
 const Home: NextPage = () => {
   return (
     <Container>
@@ -29,6 +31,9 @@ const Home: NextPage = () => {
       </Stack>
       <Center bg="green.400" h="100px" color="white" fontSize="xx-large">
         cogojobs
+      </Center>
+      <Center color="white" fontSize="xx-large">
+        <Image src="android-chrome-512x512.png" alt="" height={500} width={500} />
       </Center>
 
       <Flex w="full" bg="gray.600" p={50} alignItems="center" justifyContent="center">
