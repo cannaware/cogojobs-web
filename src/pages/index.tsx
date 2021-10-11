@@ -1,3 +1,4 @@
+import { EmailIcon } from '@chakra-ui/icons';
 import {
   chakra,
   Box,
@@ -9,13 +10,30 @@ import {
   Stack,
   Text,
   Heading,
+  Button,
 } from '@chakra-ui/react';
 import type { NextPage } from 'next';
+import { useState } from 'react';
 import { IoMdCheckmarkCircle } from 'react-icons/io';
 
 import Image from '@/components/Image';
 
 const Home: NextPage = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSendEmail = async () => {
+    setIsLoading(true);
+
+    const testUrl = 'https://cogojobs-api.cannaware.workers.dev';
+    const testEmail = 'colquemario@gmail.com';
+    const res = await fetch(`${testUrl}/api/contact?to=${encodeURIComponent(testEmail)}`, {
+      method: 'POST',
+    });
+
+    setIsLoading(false);
+    console.log('res', res.ok, res.statusText);
+  };
+
   return (
     <Container>
       <Stack>
@@ -29,11 +47,26 @@ const Home: NextPage = () => {
           streaming through a rift in the clouds.
         </Text>
       </Stack>
+
       <Center bg="green.400" h="100px" color="white" fontSize="xx-large">
         cogojobs
       </Center>
+
       <Center color="white" fontSize="xx-large">
         <Image src="android-chrome-512x512.png" alt="" height={500} width={500} />
+      </Center>
+
+      <Center color="white" fontSize="xx-large">
+        <Button
+          leftIcon={<EmailIcon />}
+          colorScheme="teal"
+          variant="solid"
+          onClick={handleSendEmail}
+          isLoading={isLoading}
+          loadingText="Enviando"
+        >
+          Email
+        </Button>
       </Center>
 
       <Flex w="full" bg="gray.600" p={50} alignItems="center" justifyContent="center">
