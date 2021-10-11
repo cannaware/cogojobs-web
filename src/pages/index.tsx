@@ -24,9 +24,8 @@ const Home: NextPage = () => {
   const handleSendEmail = async () => {
     setIsLoading(true);
 
-    const testUrl = 'https://cogojobs-api.cannaware.workers.dev';
     const testEmail = 'colquemario@gmail.com';
-    const res = await fetch(`${testUrl}/api/contact?to=${encodeURIComponent(testEmail)}`, {
+    const res = await fetch(`/api/contact?to=${encodeURIComponent(testEmail)}`, {
       method: 'POST',
     });
 
