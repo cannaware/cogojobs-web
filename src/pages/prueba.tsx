@@ -13,10 +13,9 @@ import {
   Button,
 } from '@chakra-ui/react';
 import type { NextPage } from 'next';
+import Image from 'next/image';
 import { useState } from 'react';
 import { IoMdCheckmarkCircle } from 'react-icons/io';
-
-import Image from '@/components/Image';
 
 const Prueba: NextPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -53,7 +52,7 @@ const Prueba: NextPage = () => {
       </Center>
 
       <Center color="white" fontSize="xx-large">
-        <Image src="android-chrome-512x512.png" alt="" height={500} width={500} />
+        <Image src="android-chrome-512x512.png" alt="Cogojobs" height={500} width={500} />
       </Center>
 
       <Center color="white" fontSize="xx-large">
