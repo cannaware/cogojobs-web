@@ -25,8 +25,9 @@ const Home: NextPage = () => {
     setIsLoading(true);
 
     const testEmail = 'colquemario@gmail.com';
-    const res = await fetch(`/api/contact?to=${encodeURIComponent(testEmail)}`, {
+    const res = await fetch('/api/contact', {
       method: 'POST',
+      body: JSON.stringify({ to: testEmail }),
     });
 
     setIsLoading(false);
