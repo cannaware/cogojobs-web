@@ -12,10 +12,9 @@ import {
   Heading,
   Button,
 } from '@chakra-ui/react';
+import Image from 'next/image';
 import { useState } from 'react';
 import { IoMdCheckmarkCircle } from 'react-icons/io';
-
-import Image from '@/components/Image';
 
 function Home() {
   const [isLoading, setIsLoading] = useState(false);
@@ -23,7 +22,7 @@ function Home() {
   const handleSendEmail = async () => {
     setIsLoading(true);
 
-    const testEmail = 'colquemario+test@gmail.com';
+    const testEmail = 'info+test@cogojobs.com';
     const res = await fetch('/api/contact', {
       method: 'POST',
       headers: {
@@ -55,7 +54,7 @@ function Home() {
       </Center>
 
       <Center color="white" fontSize="xx-large">
-        <Image src="/android-chrome-512x512.png" alt="" height={500} width={500} />
+        <Image src="/android-chrome-512x512.png" alt="Cogojobs" height={500} width={500} />
       </Center>
 
       <Center color="white" fontSize="xx-large">
