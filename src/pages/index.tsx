@@ -55,7 +55,7 @@ function Home() {
       </Center>
 
       <Center color="white" fontSize="xx-large">
-        <Image src="android-chrome-512x512.png" alt="" height={500} width={500} />
+        <Image src="/android-chrome-512x512.png" alt="" height={500} width={500} />
       </Center>
 
       <Center color="white" fontSize="xx-large">
