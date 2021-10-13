@@ -59,7 +59,8 @@ function Home() {
       </Center>
 
       <Center color="white" fontSize="xx-large">
-        <form name="contact" data-netlify="true">
+        <form name="contact" data-netlify="true" action="/success">
+          <input type="hidden" name="form-name" value="contact" />
           <p>
             <label>
               Name <input type="text" name="name" />
