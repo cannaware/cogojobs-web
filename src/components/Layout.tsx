@@ -8,7 +8,7 @@ type LayoutProps = {
   children: ReactElement | ReactElement[];
 };
 
-const Layout = ({ children, ...props }: LayoutProps) => {
+function Layout({ children, ...props }: LayoutProps) {
   return (
     <>
       <Head>
@@ -24,6 +24,6 @@ const Layout = ({ children, ...props }: LayoutProps) => {
       </Flex>
     </>
   );
-};
+}
 
 export default Layout;

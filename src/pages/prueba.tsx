@@ -12,12 +12,11 @@ import {
   Heading,
   Button,
 } from '@chakra-ui/react';
-import type { NextPage } from 'next';
 import Image from 'next/image';
 import { useState } from 'react';
 import { IoMdCheckmarkCircle } from 'react-icons/io';
 
-const Prueba: NextPage = () => {
+function Prueba() {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSendEmail = async () => {
@@ -96,6 +95,6 @@ const Prueba: NextPage = () => {
       </Flex>
     </Container>
   );
-};
+}
 
 export default Prueba;

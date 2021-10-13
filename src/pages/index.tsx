@@ -12,22 +12,24 @@ import {
   Heading,
   Button,
 } from '@chakra-ui/react';
-import type { NextPage } from 'next';
 import { useState } from 'react';
 import { IoMdCheckmarkCircle } from 'react-icons/io';
 
 import Image from '@/components/Image';
 
-const Home: NextPage = () => {
+function Home() {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSendEmail = async () => {
     setIsLoading(true);
 
-    const testEmail = 'colquemario@gmail.com';
+    const testEmail = 'colquemario+test@gmail.com';
     const res = await fetch('/api/contact', {
       method: 'POST',
-      body: JSON.stringify({ to: testEmail }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email: testEmail }),
     });
 
     setIsLoading(false);
@@ -54,6 +56,29 @@ const Home: NextPage = () => {
 
       <Center color="white" fontSize="xx-large">
         <Image src="android-chrome-512x512.png" alt="" height={500} width={500} />
+      </Center>
+
+      <Center color="white" fontSize="xx-large">
+        <form name="contact" netlify>
+          <p>
+            <label>
+              Name <input type="text" name="name" />
+            </label>
+          </p>
+          <p>
+            <label>
+              Email <input type="email" name="email" />
+            </label>
+          </p>
+          <p>
+            <label>
+              Message <textarea name="message"></textarea>
+            </label>
+          </p>
+          <p>
+            <button type="submit">Send</button>
+          </p>
+        </form>
       </Center>
 
       <Center color="white" fontSize="xx-large">
@@ -97,6 +122,6 @@ const Home: NextPage = () => {
       </Flex>
     </Container>
   );
-};
+}
 
 export default Home;
