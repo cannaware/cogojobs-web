@@ -59,7 +59,7 @@ function Home() {
       </Center>
 
       <Center color="white" fontSize="xx-large">
-        <form name="contact" netlify>
+        <form name="contact" data-netlify="true">
           <p>
             <label>
               Name <input type="text" name="name" />
