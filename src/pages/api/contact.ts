@@ -19,12 +19,12 @@ async function handler(req: NextApiRequest, res: NextApiResponse<ResponseMessage
   }
 
   const mailerResponse = await sendEmail({
-    to: [email],
-    subject: 'Nuevo contacto',
+    to: email,
+    subject: 'Nuevo contacto!',
     template: EMAIL_TEMPLATES.BASE,
   });
 
-  console.log('mailerResponse', mailerResponse);
+  console.log('mailerResponse', mailerResponse.ok, mailerResponse.statusText);
   return res.json({ message: 'Email sent OK' });
 }
 

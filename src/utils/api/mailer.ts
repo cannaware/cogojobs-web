@@ -1,17 +1,11 @@
-import nodemailer from 'nodemailer';
-import mailgunTransport from 'nodemailer-mailgun-transport';
-
 const DEFAULT_FROM = process.env.EMAIL_FROM || '"Cogojobs" <info@cogojobs.com>';
+const MG_API_URL = `https://api.mailgun.net/v3/${process.env.MG_DOMAIN_NAME}/messages`;
 
-const transportOptions = {
-  auth: {
-    api_key: process.env.MG_API_KEY!,
-    domain: process.env.MG_DOMAIN_NAME!,
-  },
-};
-
-// INFO: set default transporter
-const transporter = nodemailer.createTransport(mailgunTransport(transportOptions));
+function urlEncodeObject(obj: { [s: string]: any }) {
+  return Object.keys(obj)
+    .map((k) => encodeURIComponent(k) + '=' + encodeURIComponent(obj[k]))
+    .join('&');
+}
 
 export const EMAIL_TEMPLATES = {
   BASE: 'template-base',
@@ -24,21 +18,37 @@ export function isValidEmail(email: string | undefined): boolean {
   return regex.test(email);
 }
 
-export type EmailData = {
+export interface EmailData {
+  to: string;
   from?: string;
-  to: string[];
   subject: string;
-  template: string;
-};
+  text?: string;
+  html?: string;
+  cc?: string;
+  bcc?: string;
+  'h-Reply-To'?: string;
+  'o:testmode'?: boolean;
+  template?: string;
+  'h:X-Mailgun-Variables'?: string;
+}
 
-export async function sendEmail({ from = DEFAULT_FROM, to, subject, template }: EmailData) {
-  const mailOptions = {
-    from,
-    to: to.join(', '),
-    subject,
-    template,
+export function sendEmail({
+  template = EMAIL_TEMPLATES.BASE,
+  from = DEFAULT_FROM,
+  to,
+  subject,
+}: EmailData): Promise<Response> {
+  const dataUrlEncoded = urlEncodeObject({ from, to, subject, template });
+  const authHeader = Buffer.from(`api:${process.env.MG_API_KEY}`).toString('base64');
+  const fetchOpts = {
+    method: 'POST',
+    headers: {
+      Authorization: `Basic ${authHeader}`,
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Content-Length': dataUrlEncoded.length.toString(),
+    },
+    body: dataUrlEncoded,
   };
-  const response = await transporter.sendMail(mailOptions);
-  console.log('Message sent: %s', response.messageId);
-  return response;
+
+  return fetch(MG_API_URL, fetchOpts);
 }
