@@ -14,6 +14,7 @@ import {
   Button,
 } from '@chakra-ui/react';
 import { useViewportScroll } from 'framer-motion';
+import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 import { AiFillGithub, AiOutlineMenu, AiFillHome, AiOutlineInbox } from 'react-icons/ai';
 import { BsFillCameraVideoFill } from 'react-icons/bs';
@@ -119,7 +120,9 @@ function Header() {
           <Flex w="full" h="full" px="6" align="center" justify="space-between">
             <Flex align="center">
               <Link href="/">
-                <HStack>COGO</HStack>
+                <HStack>
+                  <Image src="/cogojobs-logotipo-dark.png" alt="Cogojobs" height={40} width={150} />
+                </HStack>
               </Link>
             </Flex>
 
