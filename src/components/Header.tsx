@@ -37,44 +37,6 @@ function Header() {
     return scrollY.onChange(() => setY(scrollY.get()));
   }, [scrollY]);
 
-  const SponsorButton = (
-    <Box
-      display={{ base: 'none', md: 'flex' }}
-      alignItems="center"
-      as="a"
-      aria-label="Sponsor"
-      href={''}
-      target="_blank"
-      rel="noopener noreferrer"
-      bg="gray.50"
-      borderWidth="1px"
-      borderColor="gray.200"
-      px="1em"
-      minH="36px"
-      rounded="md"
-      fontSize="sm"
-      color="gray.800"
-      outline="0"
-      transition="all 0.3s"
-      _hover={{
-        bg: 'gray.100',
-        borderColor: 'gray.300',
-      }}
-      _active={{
-        borderColor: 'gray.200',
-      }}
-      _focus={{
-        boxShadow: 'outline',
-      }}
-      ml={5}
-    >
-      <Icon as={FaHeart} w="4" h="4" color="red.500" mr="2" />
-      <Box as="strong" lineHeight="inherit" fontWeight="semibold">
-        Sponsor
-      </Box>
-    </Box>
-  );
-
   const MobileNavContent = (
     <VStack
       pos="absolute"
@@ -120,30 +82,16 @@ function Header() {
           <Flex w="full" h="full" px="6" align="center" justify="space-between">
             <Flex align="center">
               <Link href="/">
-                <HStack>
-                  <Image
-                    src="/assets/cogojobs-logotipo-dark.png"
-                    alt="Cogojobs"
-                    height={40}
-                    width={150}
-                  />
-                </HStack>
+                <Image
+                  src="/assets/cogojobs-logotipo-dark.png"
+                  alt="Cogojobs"
+                  height={40}
+                  width={150}
+                />
               </Link>
             </Flex>
 
             <Flex justify="flex-end" w="full" maxW="824px" align="center" color="gray.400">
-              <HStack spacing="5" display={{ base: 'none', md: 'flex' }}>
-                <Link isExternal aria-label="Go to Cogojobs page" href="https://cogojobs.com">
-                  <Icon
-                    as={AiFillGithub}
-                    display="block"
-                    transition="color 0.2s"
-                    w="5"
-                    h="5"
-                    _hover={{ color: 'gray.600' }}
-                  />
-                </Link>
-              </HStack>
               <IconButton
                 size="md"
                 fontSize="lg"
@@ -154,7 +102,6 @@ function Header() {
                 onClick={toggleMode}
                 icon={<SwitchIcon />}
               />
-              {SponsorButton}
               <IconButton
                 display={{ base: 'flex', md: 'none' }}
                 aria-label="Open menu"
