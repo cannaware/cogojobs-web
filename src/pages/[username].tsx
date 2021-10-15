@@ -2,15 +2,17 @@
 import { chakra, useColorModeValue, Image, Box, Flex, Link } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 
-import useUser from '@/hooks/useUser';
+// import useUser from '@/hooks/useUser';
 
 function Username() {
   const router = useRouter();
   const { username } = router.query;
-  const { data: user, error } = useUser({ username: username as string });
+  console.log('username', username);
 
-  if (error) return <>Error</>;
-  if (!user) return <>Loading...</>;
+  // const { data: user, error } = useUser({ username: username as string });
+
+  // if (error) return <>Error</>;
+  // if (!user) return <>Loading...</>;
 
   return (
     <Flex py={50} px={5} w="full" alignItems="center" justifyContent="center">
@@ -32,8 +34,8 @@ function Username() {
             borderStyle="solid"
             borderWidth={2}
             borderColor={useColorModeValue('brand.500', 'brand.400')}
-            alt="Testimonial avatar"
-            src="https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=76&q=80"
+            alt="Mario Colque en Cogojobs"
+            src="/assets/users/colketo.jpg"
           />
         </Flex>
 
@@ -43,19 +45,25 @@ function Username() {
           mt={{ base: 2, md: 0 }}
           fontWeight="bold"
         >
-          {user.name}
+          Mario Colque
         </chakra.h2>
 
         <chakra.p mt={2} color={useColorModeValue('gray.600', 'gray.200')}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae dolores deserunt ea
-          doloremque natus error, rerum quas odio quaerat nam ex commodi hic, suscipit in a
-          veritatis pariatur minus consequuntur!
+          🌱 Adicto a la Tecnología. Amante del Arte. Apasionado por el Cannabis y el poder de las
+          plantas.
         </chakra.p>
 
-        <Flex justifyContent="end" mt={4}>
-          <Link fontSize="xl" color={useColorModeValue('brand.500', 'brand.300')}>
+        <Flex justifyContent="center" mt={4}>
+          {/* <Link fontSize="xl" color={useColorModeValue('brand.500', 'brand.300')}>
             Contactar
-          </Link>
+          </Link> */}
+          <Image
+            w={150}
+            h={150}
+            fit="cover"
+            alt="Mario Colque en Cogojobs"
+            src="/assets/qrcodes/colketo.png"
+          />
         </Flex>
       </Box>
     </Flex>

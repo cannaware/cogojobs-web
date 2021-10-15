@@ -41,7 +41,7 @@ function Hero() {
           color={useColorModeValue('gray.900', 'gray.100')}
           lineHeight="shorter"
         >
-          Cultiva tu talento
+          🌱 Cultivá tu talento
         </chakra.h1>
         <chakra.p mb={6} fontSize={{ base: 'lg', md: 'xl' }} color="gray.500" lineHeight="base">
           Somos la primera plataforma dedicada al trabajo en la Industria del Cannabis de
@@ -62,7 +62,7 @@ function Hero() {
               mt={0}
               size="lg"
               type="email"
-              placeholder="Ingresa tu email..."
+              placeholder="Ingresa tu email recibir novedades..."
               required={true}
             />
           </GridItem>
