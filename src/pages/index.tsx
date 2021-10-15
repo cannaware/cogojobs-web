@@ -50,7 +50,7 @@ function Home() {
       </Stack>
 
       <Center bg="green.400" h="100px" color="white" fontSize="xx-large">
-        <Image src="/cogojobs-logotipo-dark.png" alt="Cogojobs" height={40} width={150} />
+        <Image src="/assets/cogojobs-logotipo-dark.png" alt="Cogojobs" height={40} width={150} />
       </Center>
 
       <Center color="white" fontSize="xx-large">

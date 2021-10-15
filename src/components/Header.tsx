@@ -121,7 +121,12 @@ function Header() {
             <Flex align="center">
               <Link href="/">
                 <HStack>
-                  <Image src="/cogojobs-logotipo-dark.png" alt="Cogojobs" height={40} width={150} />
+                  <Image
+                    src="/assets/cogojobs-logotipo-dark.png"
+                    alt="Cogojobs"
+                    height={40}
+                    width={150}
+                  />
                 </HStack>
               </Link>
             </Flex>
