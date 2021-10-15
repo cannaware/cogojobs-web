@@ -8,7 +8,7 @@ type LayoutProps = {
   children: ReactElement | ReactElement[];
 };
 
-function Layout({ children, ...props }: LayoutProps) {
+function Layout({ children }: LayoutProps) {
   return (
     <>
       <Head>
@@ -19,9 +19,7 @@ function Layout({ children, ...props }: LayoutProps) {
         <title>Cogojobs</title>
       </Head>
       <Header />
-      <Flex direction="column" maxW={{ xl: '1200px' }} m="0 auto" p={6} {...props}>
-        {children}
-      </Flex>
+      {children}
     </>
   );
 }

@@ -1,33 +1,30 @@
 import {
   chakra,
   Flex,
-  HStack,
-  Icon,
   IconButton,
   Link,
   useColorMode,
   useColorModeValue,
-  useDisclosure,
-  CloseButton,
   Box,
-  VStack,
-  Button,
+  HStack,
 } from '@chakra-ui/react';
+import { mode } from '@chakra-ui/theme-tools';
 import { useViewportScroll } from 'framer-motion';
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
-import { AiFillGithub, AiOutlineMenu, AiFillHome, AiOutlineInbox } from 'react-icons/ai';
-import { BsFillCameraVideoFill } from 'react-icons/bs';
-import { FaMoon, FaSun, FaHeart } from 'react-icons/fa';
+import { FaMoon, FaSun } from 'react-icons/fa';
 
 function Header() {
-  const mobileNav = useDisclosure();
-
   const { toggleColorMode: toggleMode } = useColorMode();
   const text = useColorModeValue('dark', 'light');
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
 
-  const bg = useColorModeValue('white', 'gray.800');
+  const logo = useColorModeValue(
+    '/assets/cogojobs-logotipo-dark.png',
+    '/assets/cogojobs-logotipo-light.png',
+  );
+  const bg = useColorModeValue('transparent', 'gray.800');
+  const borderTopColor = useColorModeValue('green.500', 'green.500');
   const ref = useRef<HTMLInputElement>(null);
   const [y, setY] = useState(0);
   const { height = 0 } = ref.current ? ref.current.getBoundingClientRect() : {};
@@ -37,44 +34,15 @@ function Header() {
     return scrollY.onChange(() => setY(scrollY.get()));
   }, [scrollY]);
 
-  const MobileNavContent = (
-    <VStack
-      pos="absolute"
-      top={0}
-      left={0}
-      right={0}
-      display={mobileNav.isOpen ? 'flex' : 'none'}
-      flexDirection="column"
-      p={2}
-      pb={4}
-      m={2}
-      bg={bg}
-      spacing={3}
-      rounded="sm"
-      shadow="sm"
-    >
-      <CloseButton aria-label="Close menu" justifySelf="self-start" onClick={mobileNav.onClose} />
-      <Button w="full" variant="ghost" leftIcon={<AiFillHome />}>
-        Dashboard
-      </Button>
-      <Button w="full" variant="solid" colorScheme="brand" leftIcon={<AiOutlineInbox />}>
-        Inbox
-      </Button>
-      <Button w="full" variant="ghost" leftIcon={<BsFillCameraVideoFill />}>
-        Videos
-      </Button>
-    </VStack>
-  );
-
   return (
     <Box pos="relative">
       <chakra.header
         ref={ref}
         shadow={y > height ? 'sm' : undefined}
-        transition="box-shadow 0.2s"
+        // transition="box-shadow 0.2s"
         bg={bg}
         borderTop="6px solid"
-        borderTopColor="brand.400"
+        borderTopColor={borderTopColor}
         w="full"
         overflowY="hidden"
       >
@@ -82,12 +50,9 @@ function Header() {
           <Flex w="full" h="full" px="6" align="center" justify="space-between">
             <Flex align="center">
               <Link href="/">
-                <Image
-                  src="/assets/cogojobs-logotipo-dark.png"
-                  alt="Cogojobs"
-                  height={40}
-                  width={150}
-                />
+                <HStack>
+                  <Image src={logo} alt="Cogojobs" height={40} width={150} />
+                </HStack>
               </Link>
             </Flex>
 
@@ -102,18 +67,8 @@ function Header() {
                 onClick={toggleMode}
                 icon={<SwitchIcon />}
               />
-              <IconButton
-                display={{ base: 'flex', md: 'none' }}
-                aria-label="Open menu"
-                fontSize="20px"
-                color={useColorModeValue('gray.800', 'inherit')}
-                variant="ghost"
-                icon={<AiOutlineMenu />}
-                onClick={mobileNav.onOpen}
-              />
             </Flex>
           </Flex>
-          {MobileNavContent}
         </chakra.div>
       </chakra.header>
     </Box>
