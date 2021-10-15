@@ -8,7 +8,6 @@ import {
   Box,
   HStack,
 } from '@chakra-ui/react';
-import { mode } from '@chakra-ui/theme-tools';
 import { useViewportScroll } from 'framer-motion';
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
@@ -19,12 +18,13 @@ function Header() {
   const text = useColorModeValue('dark', 'light');
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
 
+  const bg = useColorModeValue('transparent', 'gray.800');
+  const borderTopColor = useColorModeValue('green.500', 'green.500');
   const logo = useColorModeValue(
     '/assets/cogojobs-logotipo-dark.png',
     '/assets/cogojobs-logotipo-light.png',
   );
-  const bg = useColorModeValue('transparent', 'gray.800');
-  const borderTopColor = useColorModeValue('green.500', 'green.500');
+
   const ref = useRef<HTMLInputElement>(null);
   const [y, setY] = useState(0);
   const { height = 0 } = ref.current ? ref.current.getBoundingClientRect() : {};
