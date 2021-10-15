@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { chakra, useColorModeValue, Image, Box, Flex, Link } from '@chakra-ui/react';
+import { chakra, useColorModeValue, Image, Box, Flex, Stack, Badge } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 
 // import useUser from '@/hooks/useUser';
@@ -52,6 +52,14 @@ function Username() {
           🌱 Adicto a la Tecnología. Amante del Arte. Apasionado por el Cannabis y el poder de las
           plantas.
         </chakra.p>
+
+        <Flex justifyContent="center" mt={4}>
+          <Stack direction="row">
+            <Badge colorScheme="green">Web</Badge>
+            <Badge colorScheme="red">Blockchain</Badge>
+            <Badge>IoT</Badge>
+          </Stack>
+        </Flex>
 
         <Flex justifyContent="center" mt={4}>
           {/* <Link fontSize="xl" color={useColorModeValue('brand.500', 'brand.300')}>

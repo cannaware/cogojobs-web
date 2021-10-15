@@ -9,6 +9,8 @@ import {
   Stack,
   Button,
   Input,
+  FormControl,
+  FormLabel,
 } from '@chakra-ui/react';
 import VisuallyHidden from '@chakra-ui/visually-hidden';
 import type { FC } from 'react';
@@ -58,13 +60,10 @@ function Hero() {
         >
           <GridItem as="label" colSpan={{ base: 'auto', lg: 4 }}>
             <VisuallyHidden>Your Email</VisuallyHidden>
-            <Input
-              mt={0}
-              size="lg"
-              type="email"
-              placeholder="Ingresa tu email recibir novedades..."
-              required={true}
-            />
+            <FormControl id="email">
+              <FormLabel>Ingresá tu email recibir novedades</FormLabel>
+              <Input mt={0} size="lg" type="email" placeholder="Email..." required={true} />
+            </FormControl>
           </GridItem>
           <Button
             as={GridItem}
@@ -76,7 +75,7 @@ function Hero() {
             colorScheme="gray"
             cursor="pointer"
           >
-            Reservar
+            Suscribir
           </Button>
         </SimpleGrid>
         <Stack
