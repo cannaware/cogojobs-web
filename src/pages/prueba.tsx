@@ -13,16 +13,19 @@ import {
   Button,
 } from '@chakra-ui/react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { IoMdCheckmarkCircle } from 'react-icons/io';
 
 function Home() {
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
+  const { to } = router.query;
 
   const handleSendEmail = async () => {
     setIsLoading(true);
 
-    const testEmail = 'info+test@cogojobs.com';
+    const testEmail = to || 'info+test@cogojobs.com';
     const res = await fetch('/api/contact', {
       method: 'POST',
       headers: {
