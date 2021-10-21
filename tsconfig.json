@@ -22,6 +22,12 @@
       "@/components/*": [
         "components/*"
       ],
+      "@/hooks/*": [
+        "hooks/*"
+      ],
+      "@/interfaces/*": [
+        "interfaces/*"
+      ],
       "@/utils/*": [
         "utils/*"
       ]

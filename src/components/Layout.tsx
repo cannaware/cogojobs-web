@@ -1,4 +1,3 @@
-import { Flex } from '@chakra-ui/layout';
 import Head from 'next/head';
 import type { ReactElement } from 'react';
 
@@ -8,7 +7,7 @@ type LayoutProps = {
   children: ReactElement | ReactElement[];
 };
 
-const Layout = ({ children, ...props }: LayoutProps) => {
+function Layout({ children }: LayoutProps) {
   return (
     <>
       <Head>
@@ -16,14 +15,12 @@ const Layout = ({ children, ...props }: LayoutProps) => {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        <title>Cogojobs</title>
+        <title>Cogojobs - Cultiva tu talento</title>
       </Head>
       <Header />
-      <Flex direction="column" maxW={{ xl: '1200px' }} m="0 auto" p={6} {...props}>
-        {children}
-      </Flex>
+      {children}
     </>
   );
-};
+}
 
 export default Layout;

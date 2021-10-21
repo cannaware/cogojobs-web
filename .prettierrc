@@ -9,6 +9,8 @@
   "endOfLine": "auto",
   "importOrder": [
     "^@/components/(.*)$",
+    "^@/hooks/(.*)$",
+    "^@/interfaces/(.*)$",
     "^@/utils/(.*)$",
     "^[./]"
   ],
