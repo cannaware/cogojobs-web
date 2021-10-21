@@ -20,7 +20,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse<ResponseMessage
 
   const mailerResponse = await sendEmail({
     to: email,
-    subject: 'Nuevo contacto!',
+    subject: 'Nuevo contacto',
     template: EMAIL_TEMPLATES.BASE,
   });
 
