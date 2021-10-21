@@ -47,7 +47,7 @@ function Hero() {
         </chakra.h1>
         <chakra.p mb={6} fontSize={{ base: 'lg', md: 'xl' }} color="gray.500" lineHeight="base">
           Somos la primera plataforma dedicada al trabajo en la Industria del Cannabis de
-          Latinoamérica.
+          América Latina.
         </chakra.p>
         <SimpleGrid
           as="form"
