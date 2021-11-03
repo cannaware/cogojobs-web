@@ -61,7 +61,7 @@ function Hero() {
           <GridItem as="label" colSpan={{ base: 'auto', lg: 4 }}>
             <VisuallyHidden>Your Email</VisuallyHidden>
             <FormControl id="email">
-              <FormLabel>Ingresá tu email recibir novedades</FormLabel>
+              <FormLabel>Ingresá tu email para recibir novedades</FormLabel>
               <Input mt={0} size="lg" type="email" placeholder="Email..." required={true} />
             </FormControl>
           </GridItem>
