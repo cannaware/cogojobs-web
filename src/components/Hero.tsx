@@ -46,8 +46,8 @@ function Hero() {
           🌱 Cultivá tu talento
         </chakra.h1>
         <chakra.p mb={6} fontSize={{ base: 'lg', md: 'xl' }} color="gray.500" lineHeight="base">
-          Somos la primera plataforma dedicada al trabajo en la Industria del Cannabis de
-          América Latina.
+          Somos la primera plataforma dedicada al trabajo en la Industria del Cannabis de América
+          Latina.
         </chakra.p>
         <SimpleGrid
           as="form"
@@ -78,7 +78,7 @@ function Hero() {
             Suscribir
           </Button>
         </SimpleGrid>
-        <Stack
+        {/* <Stack
           display="flex"
           direction={{ base: 'column', md: 'row' }}
           justifyContent={{ base: 'start', md: 'center' }}
@@ -89,7 +89,7 @@ function Hero() {
           <Feature>Siempre Gratis</Feature>
           <Feature>Sin comisiones</Feature>
           <Feature>Atendido por humanos</Feature>
-        </Stack>
+        </Stack> */}
       </Box>
     </Box>
   );
